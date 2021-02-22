@@ -8,11 +8,11 @@ class SendGrid {
 
     static sendMessage({ to, subject, text, html }) {
         const message = {
-            to: 'slimbaron@gmail.com',
+            to,
             from: 'vishersb@gmail.com',
-            subject: 'Hello from sendgrid',
-            text: 'Hello from sendgrim, Victor',
-            html: `<h1>Hi world</h1>`
+            subject,
+            text: 'Hello from sendgrid, Victor',
+            html: html,
         };
         sgMail.send(message)
             .then(res => console.log(`Email sent`))

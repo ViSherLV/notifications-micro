@@ -3,6 +3,7 @@ const jsonParser = express.json();
 const { addUser } = require('../mongo/helpers');
 const { events } = require('../enums');
 const axios = require('axios');
+const { sendNotifications } = require('../modules');
 module.exports = function (app) {
 
     app.post("/addUser", jsonParser, async function (req, res) {
@@ -19,6 +20,8 @@ module.exports = function (app) {
         switch (event) {
             case 'addPost':
                 console.log(`event addPost`)
+                console.log(`req_data`, data)
+                await sendNotifications (data);
                 break;
             case 'getPosts':
                 console.log(`event getPosts`)

@@ -1,4 +1,4 @@
 module.exports = {
-    ...require('./addPost'),
     ...require('./addUser'),
+    ...require('./getAllUsers'),
 }
